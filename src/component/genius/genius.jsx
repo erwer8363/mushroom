@@ -1,23 +1,22 @@
 /**
  * Created by ever on 2020/1/2.
  */
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {getUserList} from "../../redux/chat-user-reduder";
+import UserCard from "../usercard/userCard";
 
 @connect(
-    state => state.chatuser
+    state => state.chatuser,
+    {getUserList}
 )
 class Genius extends Component {
-    constructor(props) {
-        super(props)
+    componentDidMount() {
+        this.props.getUserList('boss')
     }
 
     render() {
-        return (
-            <Fragment>
-
-            </Fragment>
-        )
+        return <UserCard userlist={this.props.userlist}/>
     }
 }
 

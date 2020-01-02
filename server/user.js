@@ -58,8 +58,14 @@ Router.post('/register', (req, res) => {
             return res.json({code: 1, msg: '后端出错了'})
         }
         const {user, type, _id} = doc
+        const tokenObj = {
+            user
+        }
+        const token = jwt.sign(tokenObj, secretKey, {
+            expiresIn: 60 * 60 * 24
+        })
         res.cookie('userid', _id)
-        return res.json({code: 0, data: {user, type, _id}})
+        return res.json({code: 0, data: {user, type, _id}, token})
     })
 })
 

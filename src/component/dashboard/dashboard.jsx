@@ -7,10 +7,7 @@ import {Route, Switch} from 'react-router-dom'
 import {NavBar} from "antd-mobile";
 import NavlinkBar from "../navlink/navlink";
 import Boss from "../boss/boss";
-
-function Genius() {
-    return <h1>牛人首页</h1>
-}
+import Genius from "../genius/genius";
 
 function Msg() {
     return <h1>消息列表</h1>
